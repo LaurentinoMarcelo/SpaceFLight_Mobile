@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "spaceflight_mobile",
+    "icon": "./assets/app-icon.png",
+    "slug": "spaceflight_mobile",
+    "version": "1.0.1",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "description": "",
+    "android": {
+      "package": "com.marcelolaurentino.spaceflight_mobile",
+      "versionCode": 5,
+      "permissions": []
+    }
+  }
+}
