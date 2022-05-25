@@ -170,25 +170,6 @@ export function Dashborad() {
           />
         </Search>
 
-
-         {/*<DataTable.Pagination
-          style={{ alignItems: 'center', width: width, backgroundColor: theme.colors.color_button, marginTop: 20, marginBottom: 10 }}
-          page={page}
-          numberOfPages={Math.ceil(totalArticles / numberOfItemsPerPage)}
-          onPageChange={page => setPage(page)}
-          label={`${from + 1}-${to} of ${totalArticles}`}
-          numberOfItemsPerPageList={numberOfItemsPerPageList}
-          numberOfItemsPerPage={numberOfItemsPerPage}
-          onItemsPerPageChange={onItemsPerPageChange}
-          selectPageDropdownLabel={'N° Artigos'}
-        />
-
-       <ViewSelectData>
-          <ButtonDate onPress={showDatePickerInicial} title={dataSelecionadaInicial} />
-          <Text style={{ color: theme.colors.color_text, fontSize: 15, fontFamily: theme.fonts.bold }}>até</Text>
-          <ButtonDate onPress={showDatePickerFinal} title={dataSelecionadaFinal} />
-          </ViewSelectData>*/}
-
         <TitleNews>News Articles</TitleNews>
 
         <FlatListArticles

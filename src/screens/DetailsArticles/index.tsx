@@ -188,7 +188,6 @@ export function DetailsArticles() {
                                 <TextLogo>Space Flight News</TextLogo>
                         </Header>
 
-                      
                         <TitleArticle>{title}</TitleArticle>
 
                         <TextPublished>Publicado em {dateFormated}</TextPublished>
