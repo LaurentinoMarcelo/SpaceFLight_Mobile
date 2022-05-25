@@ -1,9 +1,13 @@
 # Space Flight News
-## O Space Flight é uma ótima alternativa para quem deseja ficar por dentro de tudo que acontece no espaço.. 
+## O Space Flight é uma ótima alternativa para quem deseja ficar por dentro de tudo que acontece no espaço. 
 Ele fornece noticias atualizadas da industrial aeroespacial do mundo de forma simples e organizada.
 
+<p align="center">
+<img title="logo" src="./assets/logo.png" width="200" height="200"/>
+</p>
+
 <h1 align="center">
-  🚀Space FLight🚀 
+  🚀Space Flight🚀 
 </h1>
 
 <p align="center">
@@ -33,17 +37,16 @@ Site da noticia, exibe o próprio site da notícia dentro da aplicação.
 
 ---
 
-
 ## 📱Aplicanção
-
-<img title="SpaceFlight" src="./assets/Dashboard.png" />
-  
+<p align="center">
+<img title="Telas" src="./assets/SpaceBanner.png" />
+ </p>
 ---     
 
 ## 🎨Layout
 
 O layout foi fornecido pala Rocketseat 
-- [Figma](https://www.figma.com/file/iOga7ZesKCy7SL1xQS5oV6/GoFinances-Ignite?node-id=0%3A1)
+- [Figma](https://www.figma.com/file/Mhn01yZLPLp0e7q3zoWACf/SpaceFlight?node-id=0%3A1)
 
   --- 
   
