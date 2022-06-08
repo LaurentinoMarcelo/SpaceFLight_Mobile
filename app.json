@@ -4,6 +4,7 @@
     "icon": "./assets/app-icon.png",
     "slug": "spaceflight_mobile",
     "version": "1.0.1",
+    "orientation": "portrait",
     "assetBundlePatterns": [
       "**/*"
     ],

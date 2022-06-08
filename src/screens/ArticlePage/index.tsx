@@ -7,7 +7,7 @@ import { ButtonVoltar } from '../../components/ButtonVoltar';
 import { ButtonAvancar } from '../../components/ButtonAvancar';
 import LottieView from 'lottie-react-native';
 
-import api from '../../api/spaceflight';
+import api from '../../api/API_SpaceFlight/spaceflight';
 
 import {
     Container,

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Dimensions, ImageBackground, StatusBar } from 'react-native';
-import api from '../../api/spaceflight';
+import api from '../../api/API_SpaceFlight/spaceflight';
+import apiSystemeSolaries from '../../api/API_SpaceX/spaceXFoguetes';
 
 import { Searchbar } from 'react-native-paper';
 import { DataTable } from 'react-native-paper';
@@ -30,6 +31,7 @@ export function Dashborad() {
   var height = Dimensions.get('window').height;
 
   const [data, setData] = useState([]);
+  const [dataSystemeSolaries, setDataSystemeSolaries] = useState([]);
   const [totalArticles, setTotalArticles] = useState(0);
   const [linkPaginacao, setLinkPaginacao] = useState("");
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -105,12 +107,19 @@ export function Dashborad() {
 
       api
         .get("/articles/count")
-        .then((response) => setTotalArticles(response.data))       
+        .then((response) => setTotalArticles(response.data))
+
+      fetch('https://api.spacexdata.com/v3/rockets')
+        .then((response) => response.json())
+        .then((json) => console.log(json));
 
     } catch (error) {
       console.log(error);
       setLoading(false);
     }
+
+
+
   }, [])
 
   useEffect(() => {
@@ -133,8 +142,7 @@ export function Dashborad() {
             console.log("ops! ocorreu um erro" + err);
           });
         setLoading(false);
-        console.log(data);
-        
+
       }
     }
     handleArticles();
@@ -163,7 +171,7 @@ export function Dashborad() {
           <ImageLogo source={Logo} />
 
           <Searchbar
-            style={{ width: 220, borderRadius: 30, fontSize:12 }}
+            style={{ width: 220, borderRadius: 30, fontSize: 12 }}
             placeholder="Digite o titulo"
             onChangeText={onChangeSearch}
             value={searchQuery}

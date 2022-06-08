@@ -1,7 +1,7 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, ImageBackground, StatusBar, TouchableOpacity } from 'react-native';
-import api from '../../api/spaceflight';
+import api from '../../api/API_SpaceFlight/spaceflight';
 import { LogoSimple } from '../../assets/images';
 import { ButtonAvancar } from '../../components/ButtonAvancar';
 import { ButtonSiteArticle } from '../../components/ButtonSiteArticle';
@@ -167,6 +167,8 @@ export function DetailsArticles() {
     useEffect(() => {
         handleDate();
     }, [])
+
+    
 
     return (
         <Container>

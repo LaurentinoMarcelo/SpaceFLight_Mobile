@@ -7,8 +7,7 @@ import {
 } from './styles';
 
 import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export type ArticleProps = {
     id: string;
