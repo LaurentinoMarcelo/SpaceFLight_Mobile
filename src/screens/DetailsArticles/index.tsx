@@ -1,22 +1,13 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, ImageBackground, StatusBar, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Dimensions, ImageBackground, StatusBar} from 'react-native';
 import api from '../../api/API_SpaceFlight/spaceflight';
-import { LogoSimple } from '../../assets/images';
-import { ButtonAvancar } from '../../components/ButtonAvancar';
 import { ButtonSiteArticle } from '../../components/ButtonSiteArticle';
-import { ButtonVoltar } from '../../components/ButtonVoltar';
+import { Header } from '../../components/Header';
 import theme from '../../global/styles/theme';
-
-import axios from 'axios';
-
-const baseUrl = 'https://api.spaceflightnewsapi.net/v3';
 
 import {
     Container,
-    Header,
-    ImageLogo,
-    TextLogo,
     ScrollViewAricle,
     TitleArticle,
     ImageArticle,
@@ -41,6 +32,8 @@ interface Props {
 }
 
 export function DetailsArticles() {
+    var width = Dimensions.get('window').width;
+    var height = Dimensions.get('window').height;
 
     const route = useRoute();
     const { navigate } = useNavigation();
@@ -59,9 +52,6 @@ export function DetailsArticles() {
     const [summary, setSummary] = useState(infoArticle.summary);
     const [newsSite, setNewsSite] = useState(infoArticle.newsSite);
     const [urlSite, setUrlSite] = useState(infoArticle.url);
-
-    const [nextId, setNextId] = useState(parseInt(idArticle) + 1);
-    const [backId, setBackId] = useState(parseInt(idArticle) - 1)
 
     const [loading, setLoading] = useState(false);
 
@@ -93,82 +83,14 @@ export function DetailsArticles() {
     }
 
     function handleDashboard() {
-        navigate('Dashboard');
-    }
-
-    async function handleArticleInicializar() {
-        try {
-            await api
-                .get('/articles/' + nextId)
-                .then((response) => setData(response.data))
-            setLoading(false);
-        } catch (error) {
-            console.log(error);
-
-        }
-
-    }
-
-    async function handleBackArticle() {
-
-        setLoading(true);
-        console.log("backid dentro da função back: " + backId);
-
-        try {
-            await api
-                .get('/articles/' + backId)
-                .then((response) => setData(response.data))
-            console.log(data);
-
-            setLoading(false);
-        } catch (error) {
-            console.log(error);
-        }
-
-        setIdArticle(data.id);
-        setTitle(data.title);
-        setPublisheAt(data.publishedAt);
-        setUrlImage(data.imageUrl);
-        setSummary(data.summary);
-        setNewsSite(data.newsSite);
-        setFeature(data.feature);
-        setDefault(data.default);
-        setUrlSite(data.url);
-
-        setBackId(backId - 1);
-        setNextId(nextId - 1);
-    }
-
-    async function handleNextArticle() {
-        setLoading(true);
-        console.log("nextId dentro da função next: " + nextId);
-        try {
-            await api
-                .get('/articles/' + nextId)
-                .then((response) => setData(response.data))
-        } catch (error) {
-            console.error(error);
-        }
-
-        setIdArticle(data.id);
-        setTitle(data.title);
-        setPublisheAt(data.publishedAt);
-        setUrlImage(data.imageUrl);
-        setSummary(data.summary);
-        setNewsSite(data.newsSite);
-        setFeature(data.feature);
-        setDefault(data.default);
-        setUrlSite(data.url);
-
-        setNextId(nextId + 1);
-        setNextId(nextId + 1);
+        navigate('UltimasNoticias');
     }
 
     useEffect(() => {
         handleDate();
     }, [])
 
-    
+
 
     return (
         <Container>
@@ -183,12 +105,9 @@ export function DetailsArticles() {
                     :
                     <ImageBackground
                         source={require('../../assets/images/background_app.png')}
-                        style={{ flex: 1, padding: 20 }}
+                        style={{ width: width, height: height, padding:20 }}
                     >
-                        <Header onPress={handleDashboard}>
-                                <ImageLogo source={LogoSimple} style={{ width: 60, height: 50, padding: 5 }} />
-                                <TextLogo>Space Flight News</TextLogo>
-                        </Header>
+                        <Header/>
 
                         <TitleArticle>{title}</TitleArticle>
 

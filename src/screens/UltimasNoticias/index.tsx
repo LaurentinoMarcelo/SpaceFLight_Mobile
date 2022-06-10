@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Dimensions, ImageBackground, StatusBar } from 'react-native';
 import api from '../../api/API_SpaceFlight/spaceflight';
-import apiSystemeSolaries from '../../api/API_SpaceX/spaceXFoguetes';
 
 import { Searchbar } from 'react-native-paper';
-import { DataTable } from 'react-native-paper';
 
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
@@ -22,16 +20,14 @@ import { CardArticles } from "../../components/CardArticles";
 import theme from '../../global/styles/theme';
 import { Loader } from '../../components/Loader';
 import { getCurrentDate } from '../../utils/recuperarDate';
-import { ButtonDate } from '../../components/ButtonDate';
 
 const numberOfItemsPerPageList = [10, 25, 50, 100];
 
-export function Dashborad() {
+export function UltimasNoticias() {
   var width = Dimensions.get('window').width;
   var height = Dimensions.get('window').height;
 
   const [data, setData] = useState([]);
-  const [dataSystemeSolaries, setDataSystemeSolaries] = useState([]);
   const [totalArticles, setTotalArticles] = useState(0);
   const [linkPaginacao, setLinkPaginacao] = useState("");
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -178,7 +174,7 @@ export function Dashborad() {
           />
         </Search>
 
-        <TitleNews>News Articles</TitleNews>
+        <TitleNews>Novas notícias</TitleNews>
 
         <FlatListArticles
           data={data}

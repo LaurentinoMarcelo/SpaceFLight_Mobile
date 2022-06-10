@@ -67,7 +67,7 @@ export function ArticlePage() {
     }
 
     function handleDashboard() {
-        navigate('Dashboard');
+        navigate('UltimasNoticias');
     }
 
     async function handleArticleNext() {

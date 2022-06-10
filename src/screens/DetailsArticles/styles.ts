@@ -7,24 +7,6 @@ export const Container = styled.View`
     flex: 1; 
 `;
 
-export const Header = styled.TouchableOpacity`
-margin-bottom: 10px;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-`;
-
-export const ImageLogo = styled.Image`
-width: 90px;
-height: 90px;
-`;
-
-export const TextLogo = styled.Text`
-font-size: ${RFValue(20)}px;
-font-family: ${theme.fonts.bold};
-color: ${theme.colors.color_text};
-`;
-
 export const ScrollViewAricle = styled.ScrollView`
    flex: 1;
    margin-top: 10px;
@@ -42,7 +24,6 @@ export const ImageArticle = styled.Image`
 width: 100%;
 height: 35%;
 border-radius: 20px;
-border: 3px solid ${theme.colors.color_button};
 min-height: 100px;
 margin-top: 20px;
 `;
