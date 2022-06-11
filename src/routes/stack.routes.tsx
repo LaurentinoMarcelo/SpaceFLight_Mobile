@@ -7,11 +7,12 @@ import { UltimasNoticias } from "../screens/UltimasNoticias";
 import { ArticlePage } from "../screens/ArticlePage";
 import { DetailsArticles } from "../screens/DetailsArticles";
 import { Dashboard } from "../screens/Dashboard";
-import { FoguetesSpaceX} from "../screens/SpaceX/FoguetesSpaceX";
-import { PlataformasSpaceX} from "../screens/SpaceX/PlataformasSpaceX";
-import { BarcosSpaceX} from "../screens/SpaceX/BarcosSpaceX";
-import { NoticiasSpaceX} from "../screens/SpaceX/NoticiasSpaceX";
-import {ArticlePageSpaceX} from "../screens/ArticlePageSpaceX";
+import { FoguetesSpaceX } from "../screens/SpaceX/FoguetesSpaceX";
+import { PlataformasSpaceX } from "../screens/SpaceX/PlataformasSpaceX";
+import { BarcosSpaceX } from "../screens/SpaceX/BarcosSpaceX";
+import { NoticiasSpaceX } from "../screens/SpaceX/NoticiasSpaceX";
+import { ArticlePageSpaceX } from "../screens/ArticlePageSpaceX";
+import { DetailsPlanets } from "../screens/DetailsPlanets";
 
 export function StackRoutes() {
 
@@ -33,7 +34,7 @@ export function StackRoutes() {
             <Screen name="NoticiasSpaceX" component={NoticiasSpaceX} />
             <Screen name="ArticlePageSpaceX" component={ArticlePageSpaceX} />
 
-            
+            <Screen name="DetailsPlanets" component={DetailsPlanets} />
         </Navigator>
     );
 }

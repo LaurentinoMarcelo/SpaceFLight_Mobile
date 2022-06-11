@@ -14,7 +14,7 @@ export const Titulo = styled.Text`
  text-align: center;
  font-family: ${theme.fonts.regular};
  color: ${theme.colors.color_text};
- font-size: ${RFValue(12)}px;
+ font-size: ${RFValue(10)}px;
 `;
 
 export const ImageArticle = styled.Image`

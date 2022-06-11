@@ -14,7 +14,7 @@ export function Header() {
     const { navigate } = useNavigation();
     
     function handleDashboard() {
-        navigate('UltimasNoticias');
+        navigate('Dashboard');
     }
     
     return (
