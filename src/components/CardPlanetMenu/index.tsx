@@ -52,16 +52,15 @@ export function CardPlanetMenu() {
         nomeDasLuas: nomeLuas,
     }
 
-    function SelectPlanet(planet: string) {
+    async function SelectPlanet(planet: string) {
         try {
-            apisPlanets
+            await apisPlanets
                 .get("/" + planet)
                 .then((response) => setDataPlanet(response.data))
 
         } catch (error) {
             console.log(error);
         }
-
         let quantidadeLuas = dataPlanet.moons;
                 
         if (quantidadeLuas == null) {
@@ -88,8 +87,7 @@ export function CardPlanetMenu() {
         setVolumePlanet(dataPlanet.vol) ;
         setAchatamentoPlanet( dataPlanet.eccentricity);
         setRotacaoPlanet(dataPlanet) ;
-        setInclinicaoPlanet(dataPlanet.inclination);    
-                
+        setInclinicaoPlanet(dataPlanet.inclination);        
     }
     
 
