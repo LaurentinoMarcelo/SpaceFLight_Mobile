@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import {
     Container,
@@ -8,135 +8,55 @@ import {
     TextMenu,
 } from './styles';
 
-import { jupiter, mars, mercure, neptune, saturne, terre, uranus, venus } from "../../assets/images/index"
+import { infoMercury, infoEath, infoMars, infoSaturne, infoUranus, infoNeptune, infoVenus, infoJupter} from '../../api/API_SystemeSolaris/infoPlantes';
+
 import { useNavigation } from '@react-navigation/native';
-import { apisPlanets } from '../../api/API_SystemeSolaris/infoPlantes';
+
+import { mercure, jupiter, mars, neptune, saturne, terre, uranus, venus } from '../../assets/images';
+
 
 export function CardPlanetMenu() {
     const { navigate } = useNavigation();
 
-    const [dataPlanet, setDataPlanet] = useState([]);
-    const [namePlanet, setNamePlanet] = useState();
-
-    const [imagePlanet, setImagePlanet] = useState();
-    const [namePlanetSelect, setNamePlanetSelect] = useState("");
-    const [tempPlanet, setTempPlanet] = useState();
-    const [massaPlanet, setMassaPlanet] = useState();
-    const [raioPlanet, setRaioPlanet] = useState();
-    const [gravidadePlanet, setGravidadePlanet] = useState();
-    const [fugaPlanet, setFugaPlanet] = useState();
-    const [descobridorPlanet, setDescobridorPlanet] = useState();
-    const [densidadePlanet, setDensidadePlanet] = useState();
-    const [volumePlanet, setVolumePlanet] = useState();
-    const [achatamentoPlanet, setAchatamentoPlanet] = useState();
-    const [rotacaoPlanet, setRotacaoPlanet] = useState();
-    const [inclinacaoPlanet, setInclinicaoPlanet] = useState();
-    const [nomeLuas, setNomesLuas] = useState([]);
-    const [numberLuas, setNumberLuas] = useState();
-
-    const infoPlanets = {
-        imagemPlanet: imagePlanet,
-        nome: namePlanetSelect,
-        temperatura: tempPlanet,
-        massa: massaPlanet,
-        raio: raioPlanet,
-        gravidade: gravidadePlanet,
-        fuga: fugaPlanet,
-        descoberto: descobridorPlanet,
-        densidade: densidadePlanet,
-        volume: volumePlanet,
-        achatamento: achatamentoPlanet,
-        rotacao: rotacaoPlanet,
-        inclinicao: inclinacaoPlanet,
-        numeroLuas: numberLuas,
-        nomeDasLuas: nomeLuas,
-    }
-
-    async function SelectPlanet(planet: string) {
-        try {
-            await apisPlanets
-                .get("/" + planet)
-                .then((response) => setDataPlanet(response.data))
-
-        } catch (error) {
-            console.log(error);
-        }
-        let quantidadeLuas = dataPlanet.moons;
-                
-        if (quantidadeLuas == null) {
-            setNumberLuas(0) ;
-        }else{
-            
-            let array = quantidadeLuas.map(function(item){
-                var numeros = nomeLuas;
-                numeros.push(item.moon);
-                setNomesLuas(numeros)
-                setNumberLuas(nomeLuas.length);
-                return array
-            })
-
-        }
-
-        setNamePlanetSelect(dataPlanet.name);
-        setTempPlanet(dataPlanet.avgTemp);
-        setMassaPlanet(dataPlanet.mass);
-        setRaioPlanet(dataPlanet.meanRadius);
-        setGravidadePlanet(dataPlanet.gravity);
-        setFugaPlanet(dataPlanet.escape)
-        setDensidadePlanet(dataPlanet.density) ;
-        setVolumePlanet(dataPlanet.vol) ;
-        setAchatamentoPlanet( dataPlanet.eccentricity);
-        setRotacaoPlanet(dataPlanet) ;
-        setInclinicaoPlanet(dataPlanet.inclination);        
-    }
-    
 
     function handleMercurio() {
-        setImagePlanet(mercure);
-        SelectPlanet("mercury");
-        navigate('DetailsPlanets', { infoPlanets });
+        const infoPlanet = infoMercury;
+        navigate('DetailsPlanets', { infoPlanet });
     }
 
-    function handleVenus() {
-        SelectPlanet("venus");
-        setImagePlanet(venus);
-        navigate('DetailsPlanets', { infoPlanets });
+    function handleVenus() {  
+        const infoPlanet = infoVenus;
+        navigate('DetailsPlanets', { infoPlanet });
     }
 
-    function handleTerra() {
-        SelectPlanet("earth");
-        setImagePlanet(terre);
-        navigate('DetailsPlanets', { infoPlanets });
+    function handleTerra() {  
+        const infoPlanet = infoEath;
+        navigate('DetailsPlanets', { infoPlanet });
     }
 
-    function handleMarte() {
-        SelectPlanet("mars");
-        setImagePlanet(mars);
-        navigate('DetailsPlanets', { infoPlanets });
+    function handleMarte() { 
+        const infoPlanet = infoMars;   
+        navigate('DetailsPlanets', { infoPlanet });
     }
 
-    function handleJupiter() {
-        SelectPlanet("jupiter");
-        setImagePlanet(jupiter);
-        navigate('DetailsPlanets', { infoPlanets });
+    function handleJupiter() { 
+        const infoPlanet = infoJupter;     
+        navigate('DetailsPlanets', { infoPlanet });
     }
 
-    function handleSaturno() {
-        SelectPlanet("saturn");
-        setImagePlanet(saturne);
-        navigate('DetailsPlanets', { infoPlanets });
+    function handleSaturno() {   
+        const infoPlanet = infoSaturne;   
+        navigate('DetailsPlanets', { infoPlanet });
     }
 
     function handleUrano() {
-        SelectPlanet("uranus");
-        setImagePlanet(uranus);
-        navigate('DetailsPlanets', { infoPlanets });
+        const infoPlanet = infoUranus;
+        navigate('DetailsPlanets', { infoPlanet });
     }
 
     function handleNeturno() {
-        SelectPlanet("neptune");
-        setImagePlanet(neptune);
-        navigate('DetailsPlanets', { infoPlanets });
+        const infoPlanet = infoNeptune;
+        navigate('DetailsPlanets', { infoPlanet });
     }
 
     return (

@@ -18,7 +18,7 @@ margin-top: 20px;
 width: 100%;
 height: 200px;
 border-radius: 10px;
-margin-bottom: 10px;
+margin-bottom: 20px;
 `;
 
 export const ViewHorizontal = styled.View`

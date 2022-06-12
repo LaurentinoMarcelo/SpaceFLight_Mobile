@@ -14,30 +14,21 @@ import {
 } from './styles';
 
 interface Props {
-    infoPlanets: {
-        imagemPlanet: string;
+    infoPlanet: {
+        imagemPlanet: any;
         nome: string;
-        temperatura: number;
-        massa: [];
-        raio: number;
-        gravidade: number;
-        fuga: number;
-        volume: number;
-        achatamento: number;
-        rotacao: number;
-        inclinicao: number;
-        numeroLuas: number;
-        nomeDasLuas: [];
+        temperatura: string;
+        massa: string;
+        diametro: string;
+        distanciaDoSol: string;
+        rotacao: string;
+        translacao: string;
+        pressaoAtmosferica: string;
+        composicaoAtmosfera: string;
+        numeroLuas: string;
     }
 }
 
-interface Props2 {
-    planetSelect: {
-        name: string;
-    }
-}
-
-import { jupiter, mars, mercure, neptune, saturne, terre, uranus, venus } from "../../assets/images/index"
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 export function DetailsPlanets() {
@@ -47,25 +38,9 @@ export function DetailsPlanets() {
     const route = useRoute();
     const { navigate } = useNavigation();
 
-    const { infoPlanets } = route.params as Props;
-    const { planetSelect } = route.params as Props2;
+    const { infoPlanet } = route.params as Props;
 
-    //const [imagePlanet, setImagePlanet] = useState(infoPlanets.imagemPlanet);
-    const [namePlanetSelect, setNamePlanetSelect] = useState(infoPlanets.nome);
-    const [tempPlanet, setTempPlanet] = useState(infoPlanets.temperatura);
-    const [massaPlanet, setMassaPlanet] = useState();
-    const [raioPlanet, setRaioPlanet] = useState(infoPlanets.raio);
-    const [gravidadePlanet, setGravidadePlanet] = useState(infoPlanets.gravidade);
-    const [fugaPlanet, setFugaPlanet] = useState();
-    const [volumePlanet, setVolumePlanet] = useState();
-    const [achatamentoPlanet, setAchatamentoPlanet] = useState(infoPlanets.achatamento);
-    const [rotacaoPlanet, setRotacaoPlanet] = useState();
-    const [inclinacaoPlanet, setInclinicaoPlanet] = useState(infoPlanets.inclinicao);
-    const [nomeLuas, setNomesLuas] = useState(infoPlanets.nomeDasLuas);
-    const [numberLuas, setNumberLuas] = useState(infoPlanets.numeroLuas);
 
-    console.log(infoPlanets);
-    
     return (
         <Container>
 
@@ -75,63 +50,55 @@ export function DetailsPlanets() {
             >
                 <Header />
 
-                <NamePlanet>{namePlanetSelect}</NamePlanet>
-
-                <ImagePlanet source={jupiter} />
+                <NamePlanet>{infoPlanet.nome}</NamePlanet>
+                                   
+                <ImagePlanet source={infoPlanet.imagemPlanet} />
 
                 <ViewHorizontal>
                     <TextDescription>Temperatura: </TextDescription>
-                    <TextValue>{tempPlanet}</TextValue>
+                    <TextValue>{infoPlanet.temperatura}</TextValue>
                 </ViewHorizontal>
 
                 <ViewHorizontal>
                     <TextDescription>Massa: </TextDescription>
-                    <TextValue>{massaPlanet}</TextValue>
+                    <TextValue>{infoPlanet.massa}</TextValue>
                 </ViewHorizontal>
 
                 <ViewHorizontal>
-                    <TextDescription>Raio: </TextDescription>
-                    <TextValue>{raioPlanet}</TextValue>
+                    <TextDescription>Diâmetro: </TextDescription>
+                    <TextValue>{infoPlanet.diametro}</TextValue>
                 </ViewHorizontal>
 
                 <ViewHorizontal>
-                    <TextDescription>Gravidade: </TextDescription>
-                    <TextValue>{gravidadePlanet}</TextValue>
+                    <TextDescription>Distância do sol: </TextDescription>
+                    <TextValue>{infoPlanet.distanciaDoSol}</TextValue>
                 </ViewHorizontal>
 
                 <ViewHorizontal>
-                    <TextDescription>Densidade: </TextDescription>
-                    <TextValue></TextValue>
+                    <TextDescription>Rotação: </TextDescription>
+                    <TextValue>{infoPlanet.rotacao}</TextValue>
                 </ViewHorizontal>
 
                 <ViewHorizontal>
-                    <TextDescription>Volume: </TextDescription>
-                    <TextValue></TextValue>
+                    <TextDescription>Translação: </TextDescription>
+                    <TextValue>{infoPlanet.translacao}</TextValue>
                 </ViewHorizontal>
 
                 <ViewHorizontal>
-                    <TextDescription>Achatamento: </TextDescription>
-                    <TextValue></TextValue>
+                    <TextDescription>Pressão atmosférica: </TextDescription>
+                    <TextValue>{infoPlanet.pressaoAtmosferica}</TextValue>
                 </ViewHorizontal>
 
                 <ViewHorizontal>
-                    <TextDescription>Rotação lateral: </TextDescription>
-                    <TextValue></TextValue>
+                    <TextDescription>Composição da atmosféra: </TextDescription>
+                    <TextValue>{infoPlanet.composicaoAtmosfera}</TextValue>
                 </ViewHorizontal>
 
                 <ViewHorizontal>
-                    <TextDescription>Inclinação axial: </TextDescription>
-                    <TextValue></TextValue>
+                    <TextDescription>Número de luas: </TextDescription>
+                    <TextValue>{infoPlanet.numeroLuas}</TextValue>
                 </ViewHorizontal>
-                <ViewHorizontal>
-                    <TextDescription>Luas: </TextDescription>
-                    <TextValue></TextValue>
-                </ViewHorizontal>
-                <ViewHorizontal>
-                    <TextDescription>Nome das luas: </TextDescription>
-                    <TextValue></TextValue>
-                </ViewHorizontal>
-
+                
             </ImageBackground>
 
         </Container>
