@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Dimensions, ImageBackground, StatusBar} from 'react-native';
+import { ActivityIndicator, Dimensions, ImageBackground, StatusBar } from 'react-native';
 import api from '../../api/API_SpaceFlight/spaceflight';
 import { ButtonSiteArticle } from '../../components/ButtonSiteArticle';
 import { Header } from '../../components/Header';
@@ -35,10 +35,10 @@ export function DetailsArticles() {
     var width = Dimensions.get('window').width;
     var height = Dimensions.get('window').height;
 
+    const axios = require("axios");
+
     const route = useRoute();
     const { navigate } = useNavigation();
-
-    const [data, setData] = useState([]);
 
     const { infoArticle } = route.params as Props;
     const [dateFormated, setDateFormated] = useState('');
@@ -52,6 +52,9 @@ export function DetailsArticles() {
     const [summary, setSummary] = useState(infoArticle.summary);
     const [newsSite, setNewsSite] = useState(infoArticle.newsSite);
     const [urlSite, setUrlSite] = useState(infoArticle.url);
+
+    const [titleTraduzido, setTitleTraduzido] = useState('')
+    const [detalhesTraduzido, setDetalhesTraduzido] = useState('')
 
     const [loading, setLoading] = useState(false);
 
@@ -86,6 +89,46 @@ export function DetailsArticles() {
         navigate('UltimasNoticias');
     }
 
+    function translateTitle(titulo : string) {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '302cb51109mshbb577f353623720p17620cjsn56eb6909aaae',
+                'X-RapidAPI-Host': 'translated-mymemory---translation-memory.p.rapidapi.com'
+            }
+        };
+        
+        fetch('https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair=en|pt%7Cit&q='+ titulo +'!&mt=1&onlyprivate=0&de=a%40b.c', options)
+            .then(response => response.json())
+            .then(response => setTitleTraduzido(response.responseData.translatedText))
+            .catch(err => console.error(err));
+
+            
+            
+    }
+
+    function translateDetalhes(titulo : string) {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '302cb51109mshbb577f353623720p17620cjsn56eb6909aaae',
+                'X-RapidAPI-Host': 'translated-mymemory---translation-memory.p.rapidapi.com'
+            }
+        };
+        
+        fetch('https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair=en|pt%7Cit&q='+ titulo +'!&mt=1&onlyprivate=0&de=a%40b.c', options)
+            .then(response => response.json())
+            .then(response => setDetalhesTraduzido(response.responseData.translatedText))
+            .catch(err => console.error(err));
+
+            
+            
+    }
+
+    translateTitle(title);
+
+    translateDetalhes(summary)
+
     useEffect(() => {
         handleDate();
     }, [])
@@ -105,17 +148,17 @@ export function DetailsArticles() {
                     :
                     <ImageBackground
                         source={require('../../assets/images/background_app.png')}
-                        style={{ width: width, height: height, padding:20 }}
+                        style={{ width: width, height: height, padding: 20 }}
                     >
-                        <Header/>
+                        <Header />
 
-                        <TitleArticle>{title}</TitleArticle>
+                        <TitleArticle>{titleTraduzido}</TitleArticle>
 
                         <TextPublished>Publicado em {dateFormated}</TextPublished>
 
                         <ImageArticle source={{ uri: urlImage }} />
                         <ScrollViewAricle >
-                            <TextArticle>{summary}</TextArticle>
+                            <TextArticle>{detalhesTraduzido}</TextArticle>
                         </ScrollViewAricle>
                         <ViewFonte>
                             <TextFont>Fonte: {newsSite}</TextFont>

@@ -35,6 +35,23 @@ export function Dashboard() {
 
     const [loading, setLoading] = useState(true);
 
+    const [titleTraduzido, setTitleTraduzido] = useState('')
+
+    function translateTitle(titulo: string) {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '302cb51109mshbb577f353623720p17620cjsn56eb6909aaae',
+                'X-RapidAPI-Host': 'translated-mymemory---translation-memory.p.rapidapi.com'
+            }
+        };
+
+        fetch('https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair=en|pt%7Cit&q=' + titulo + '!&mt=1&onlyprivate=0&de=a%40b.c', options)
+            .then(response => response.json())
+            .then(response => setTitleTraduzido(response.responseData.translatedText))
+            .catch(err => console.error(err));
+    }
+
     useEffect(() => {
         try {
             api
@@ -49,10 +66,9 @@ export function Dashboard() {
             console.log(error);
             setLoading(false);
         }
-        console.log(dataNasa);
-
-
     }, [])
+
+    translateTitle(dataNasa.title)
 
     return (
         <Container>
@@ -70,7 +86,7 @@ export function Dashboard() {
 
                     <Header />
 
-                    <TextTopico>Ultimas noticias</TextTopico>
+                    <TextTopico>Últimas notícias</TextTopico>
 
                     <ViewListArticle>
                         <FlatListArticles
@@ -84,7 +100,7 @@ export function Dashboard() {
                         <ImageNasa source={{ uri: dataNasa.url }} />
                         <ViewTextImageNasa>
                             <TextImageNasa>Imagem do dia da Nasa</TextImageNasa>
-                            <TextDescricaoImage>{dataNasa.title}</TextDescricaoImage>
+                            <TextDescricaoImage>{titleTraduzido}</TextDescricaoImage>
                         </ViewTextImageNasa>
                     </CampoImageNasa>
 
@@ -107,7 +123,7 @@ export function Dashboard() {
                     <ViewSistemaSolar>
                         <TextTopico>Sobre Nós</TextTopico>
                         <TextDescricaoSpaceX>Conheça a nossa missão e entre em contato para nos dar{'\n'}
-                         feedback sobre oportunidades de melhoria.</TextDescricaoSpaceX>
+                            feedback sobre oportunidades de melhoria.</TextDescricaoSpaceX>
                     </ViewSistemaSolar>
                 </ScrollView>
             </ImageBackground>

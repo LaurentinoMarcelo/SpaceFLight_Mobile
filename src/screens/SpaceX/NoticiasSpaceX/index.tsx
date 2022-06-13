@@ -43,7 +43,7 @@ export function NoticiasSpaceX() {
 
         <ImageLogo source={spaceXLogo}/>
         
-        <TextTitulo>Histórico</TextTitulo>
+        <TextTitulo>Últimas notícias</TextTitulo>
 
         <FlatList
           data={dataNoticias}

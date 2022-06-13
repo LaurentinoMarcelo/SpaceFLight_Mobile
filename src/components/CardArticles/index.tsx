@@ -27,6 +27,7 @@ type Props = {
 
 export function CardArticles({ data }: Props) {
 
+
     const { navigate } = useNavigation();
 
     const [dateFormated, setDateFormated] = useState('');
@@ -57,6 +58,7 @@ export function CardArticles({ data }: Props) {
         setDateFormated(diaF + "/" + mesF + "/" + anoF)
         return diaF + "/" + mesF + "/" + anoF;
     };
+
 
     useEffect(() => {
         handleDate();

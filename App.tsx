@@ -7,6 +7,8 @@ import { ThemeProvider } from 'styled-components';
 
 import { Provider as PaperProvider } from 'react-native-paper';
 
+import * as SplashScreen from 'expo-splash-screen';
+
 import {
   useFonts,
   Roboto_700Bold,

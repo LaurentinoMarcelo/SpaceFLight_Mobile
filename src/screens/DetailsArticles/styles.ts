@@ -16,7 +16,7 @@ export const ScrollViewAricle = styled.ScrollView`
 export const TitleArticle = styled.Text`
 font-family: ${theme.fonts.bold};
  color: ${theme.colors.color_text};
- font-size: ${RFValue(25)}px;
+ font-size: ${RFValue(20)}px;
  text-align: center;
 `;
 
