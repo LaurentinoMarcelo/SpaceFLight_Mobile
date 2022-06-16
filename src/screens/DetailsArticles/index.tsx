@@ -101,10 +101,7 @@ export function DetailsArticles() {
         fetch('https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair=en|pt%7Cit&q='+ titulo +'!&mt=1&onlyprivate=0&de=a%40b.c', options)
             .then(response => response.json())
             .then(response => setTitleTraduzido(response.responseData.translatedText))
-            .catch(err => console.error(err));
-
-            
-            
+            .catch(err => console.error(err));    
     }
 
     function translateDetalhes(titulo : string) {
@@ -119,10 +116,7 @@ export function DetailsArticles() {
         fetch('https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair=en|pt%7Cit&q='+ titulo +'!&mt=1&onlyprivate=0&de=a%40b.c', options)
             .then(response => response.json())
             .then(response => setDetalhesTraduzido(response.responseData.translatedText))
-            .catch(err => console.error(err));
-
-            
-            
+            .catch(err => console.error(err));       
     }
 
     translateTitle(title);
