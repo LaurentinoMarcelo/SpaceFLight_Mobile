@@ -32,8 +32,6 @@ export function CardArticlesHorizontal({ data }: Props) {
 
     const [dateFormated, setDateFormated] = useState('');
 
-    const [titleTraduzido, setTitleTraduzido] = useState('')
-
     const infoArticle = {
         id: data.id,
         featured: data.featured,
@@ -61,23 +59,6 @@ export function CardArticlesHorizontal({ data }: Props) {
         return diaF + "/" + mesF + "/" + anoF;
     };
 
-    function translateTitle(titulo: string) {
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '302cb51109mshbb577f353623720p17620cjsn56eb6909aaae',
-                'X-RapidAPI-Host': 'translated-mymemory---translation-memory.p.rapidapi.com'
-            }
-        };
-
-        fetch('https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair=en|pt%7Cit&q=' + titulo + '!&mt=1&onlyprivate=0&de=a%40b.c', options)
-            .then(response => response.json())
-            .then(response => setTitleTraduzido(response.responseData.translatedText))
-            .catch(err => console.error(err));
-    }
-
-    translateTitle(data.title)
-
     useEffect(() => {
         handleDate();
     }, [])
@@ -85,7 +66,7 @@ export function CardArticlesHorizontal({ data }: Props) {
     return (
         <Container onPress={DetailsArticles}>
             <ImageArticle source={{ uri: data.imageUrl }} />
-            <Titulo>{titleTraduzido}</Titulo>
+            <Titulo>{data.title}</Titulo>
         </Container>
 
     );

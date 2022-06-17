@@ -8,6 +8,7 @@ import {
     Container,
     NamePlanet,
     ImagePlanet,
+    ViewVertical,
     ViewHorizontal,
     TextDescription,
     TextValue,
@@ -51,43 +52,50 @@ export function DetailsPlanets() {
                 <Header />
 
                 <NamePlanet>{infoPlanet.nome}</NamePlanet>
-                                   
+
                 <ImagePlanet source={infoPlanet.imagemPlanet} />
 
-                <ViewHorizontal>
-                    <TextDescription>Temperatura: </TextDescription>
-                    <TextValue>{infoPlanet.temperatura}</TextValue>
-                </ViewHorizontal>
+                <ViewVertical>
+                    <ViewHorizontal>
+                        <TextDescription>Temperatura: </TextDescription>
+                        <TextValue>{infoPlanet.temperatura}</TextValue>
+                    </ViewHorizontal>
 
-                <ViewHorizontal>
-                    <TextDescription>Massa: </TextDescription>
-                    <TextValue>{infoPlanet.massa}</TextValue>
-                </ViewHorizontal>
+                    <ViewHorizontal>
+                        <TextDescription>Massa: </TextDescription>
+                        <TextValue>{infoPlanet.massa}</TextValue>
+                    </ViewHorizontal>
+                </ViewVertical>
 
-                <ViewHorizontal>
-                    <TextDescription>Diâmetro: </TextDescription>
-                    <TextValue>{infoPlanet.diametro}</TextValue>
-                </ViewHorizontal>
+                <ViewVertical>
+                    <ViewHorizontal>
+                        <TextDescription>Diâmetro: </TextDescription>
+                        <TextValue>{infoPlanet.diametro}</TextValue>
+                    </ViewHorizontal>
+
+                    <ViewHorizontal>
+                        <TextDescription>Rotação: </TextDescription>
+                        <TextValue>{infoPlanet.rotacao}</TextValue>
+                    </ViewHorizontal>
+                </ViewVertical>
+
 
                 <ViewHorizontal>
                     <TextDescription>Distância do sol: </TextDescription>
                     <TextValue>{infoPlanet.distanciaDoSol}</TextValue>
                 </ViewHorizontal>
 
-                <ViewHorizontal>
-                    <TextDescription>Rotação: </TextDescription>
-                    <TextValue>{infoPlanet.rotacao}</TextValue>
-                </ViewHorizontal>
+                <ViewVertical>
+                    <ViewHorizontal>
+                        <TextDescription>Translação: </TextDescription>
+                        <TextValue>{infoPlanet.translacao}</TextValue>
+                    </ViewHorizontal>
 
-                <ViewHorizontal>
-                    <TextDescription>Translação: </TextDescription>
-                    <TextValue>{infoPlanet.translacao}</TextValue>
-                </ViewHorizontal>
-
-                <ViewHorizontal>
-                    <TextDescription>Pressão atmosférica: </TextDescription>
-                    <TextValue>{infoPlanet.pressaoAtmosferica}</TextValue>
-                </ViewHorizontal>
+                    <ViewHorizontal>
+                        <TextDescription>Pressão atmosférica: </TextDescription>
+                        <TextValue>{infoPlanet.pressaoAtmosferica}</TextValue>
+                    </ViewHorizontal>
+                </ViewVertical>
 
                 <ViewHorizontal>
                     <TextDescription>Composição da atmosféra: </TextDescription>
@@ -98,7 +106,7 @@ export function DetailsPlanets() {
                     <TextDescription>Número de luas: </TextDescription>
                     <TextValue>{infoPlanet.numeroLuas}</TextValue>
                 </ViewHorizontal>
-                
+
             </ImageBackground>
 
         </Container>

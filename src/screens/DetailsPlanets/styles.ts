@@ -21,6 +21,11 @@ border-radius: 10px;
 margin-bottom: 20px;
 `;
 
+export const ViewVertical = styled.View`
+flex-direction: row;
+justify-content: space-between;
+`;
+
 export const ViewHorizontal = styled.View`
 flex-direction: row;
 align-items: center;
